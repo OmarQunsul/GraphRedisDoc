@@ -35,6 +35,10 @@
         margin: 5px;
       }
 
+      li.menu_sep {
+        height: 20px;
+      }
+
       .sep {
         margin-bottom: 20px;
         margin-top: 20px;
@@ -79,12 +83,18 @@
 
         <div class="col-md-4">
           <ul class="nav nav-pills nav-stacked">
-            <li class=""><a href="#gvertex">gvertex</a></li>
+            <li><h4>Basic commands</h4></li>
+            <li><a href="#gvertex">gvertex</a></li>
             <li><a href="#gedge">gedge</a></li>
             <li><a href="#gedgeexsts">gedgeexists</a></li>
             <li><a href="#gedgeincrby">gedgeincrby</a></li>
             <li><a href="#gneighbours">gneighbours</a></li>
             <li><a href="#gcommon">gcommon</a></li>
+
+            <li class="menu_sep"></li>
+            <li><h4>Algorithms</h4></li>
+            <li><a href="#gshortestpath">gshortestpath</a></li>
+            <li><a href="#gmintree">gmintree</a></li>
           </ul>
         </div>
 
@@ -125,6 +135,16 @@
           <div class="syntax"> <b>gcommon</b> graph_name vertex1 vertex2 </div>
           <h3 class="doc"> Return value </h3>
           <p> A list of the common neighbours </p>
+
+          <h2 id="gshortestpath">gshortestpath</h2>
+          <p> This command runs Dijkstra algorithm to find the shortest path from vertex 1 to vertex 2 in a graph </p>
+          <div class="syntax"> <b>gshortestpath</b> graph_name vertex1 vertex2 </div>
+          <h3 class="doc"> Return value </h3>
+          <p> A list that contains the vertices that build the path from vertex 1 to vertex 2, and the cost of that path.</p>
+
+          <h2 id="gmintree">gmintree</h2>
+          <p> This command calculates the minimum spanning tree using Prim's algorithm, and saves the resulting tree in another graph </p>
+          <div class="syntax"> <b>gmintree</b> graph_name graph2_name</div>
 
         </div>
 
