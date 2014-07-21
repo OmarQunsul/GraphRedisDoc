@@ -16,6 +16,9 @@
 
     <!-- Custom styles for this template -->
     <link href="jumbotron-narrow.css" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-2.1.1.js"></script>
+    <script src="graph.js"></script>
+
     <style>
       .version {
         font-size: 14px !important;
@@ -44,7 +47,6 @@
       h3.doc {
         font-size: 18px;
         font-weight: bold;
-
       }
 
       .footer {
@@ -59,7 +61,48 @@
         font-family: Courier;
       }
 
+      canvas {
+        border: 1px solid #444;
+        margin: auto;
+      }
+
     </style>
+
+
+    <script>
+
+      $(function() {
+
+        var graph1 = { nodes: ['a', 'b', 'c', 'd', 'e'],
+          edges: [[0, 1, 1], [1, 2, 1], [2, 3, 1], [0, 3, 20], [3, 4, 1], [4, 0, 3]],
+          highlight: []
+        }
+
+        var graph2 = { nodes: ['a', 'b', 'c', 'd', 'e'],
+          edges: [],
+          highlight: []
+        }
+
+        var graph4 = { nodes: ['a', 'b', 'c', 'd', 'e'],
+          edges: [[0, 1, 1, true], [1, 2, 1], [2, 3, 1], [0, 3, 20, true], [3, 4, 1], [4, 0, 3, true]],
+          highlight: [1, 3, 4],
+          center_node: 0
+        }
+
+        var graph5 = { nodes: ['a', 'b', 'c', 'd', 'e'],
+          edges: [[0, 1, 1], [1, 2, 1], [2, 3, 1], [0, 3, 20], [3, 4, 1, true], [4, 0, 3, true]],
+          highlight: [0, 3]
+        }
+
+        drawGraph(graph1, 'graph1');
+        drawGraph(graph2, 'graph2');
+        drawGraph(graph1, 'graph3');
+        drawGraph(graph4, 'graph4');
+        drawGraph(graph5, 'graph5');
+
+      });
+
+    </script>
   </head>
 
   <body>
@@ -77,7 +120,81 @@
 
       <div class"row">
 
-        <h3> Coming soon </h3>
+        <h1> Getting started </h1>
+
+        <p> In this part we will show you how to build this graph using Graph/Redis, and we will see how to apply some of the
+        base commands and the algorithms on this sample </p>
+
+        <canvas class="graph" id="graph1" width="500" height="350"></canvas>
+
+        <p> First we need to add the vertices a, b, c, d and e </p>
+        <p> To do so, we use the command <code>gvertex</code> as in the following example: </p>
+
+        <code>
+          gvertex graph1 a <br>
+          gvertex graph1 b <br>
+          gvertex graph1 c <br>
+          gvertex graph1 d <br>
+          gvertex graph1 e <br>
+        </code>
+
+        <p> or we can use <code>gvertex</code> to add multiple vertices at once, like in this example: </p>
+
+        <code>
+          gvertex graph1 a b c d e
+        </code>
+
+        <p> graph1 didn't exist before, but it has been created once we added the first vertex to it. </p>
+        <p> By the end of running add the vertices, our graph looks like this </p>
+
+        <canvas class="graph" id="graph2" width="500" height="350"></canvas>
+
+        <p> To add weighted edges to the graph, we use the command <code> gedge </code> which takes 4 paramters:
+        <b> graph_name </b> <b> vertex1 </b> <b> vertex2 </b> <b> edge_value </b> </p>
+
+        <h3> Example: </h3>
+        <code>
+          gedge graph1 a b 1 <br>
+          gedge graph1 b c 1 <br>
+          gedge graph1 c d 1 <br>
+          gedge graph1 d e 1 <br>
+          gedge graph1 e a 3 <br>
+          gedge graph1 a d 20 <br>
+        </code>
+
+        <p> And the result will be exactly as in the graph depicted at the top of the page </p>
+        <canvas class="graph" id="graph3" width="500" height="350"></canvas>
+
+        <p> So let's now play with some commands, and see what Graph/Redis can do </p>
+
+
+        <h3> Listing the neighbours </h3>
+        <p> Let's assume we want to list the neighbour vertices of some node, let's say <b>a</b> in our example.
+        neighbour vertices of <b>a</b> are the vertices which have direct edge with the node <b>a</b>. To list
+        the neighbours, we use the command <code>gneighbours</code> like this.
+
+        <code>gneighbours graph1 a</code> which will return a list of the following values: <br>
+
+        <code> 1) b <br>
+          2) d <br>
+          3) e <br>
+        </code>
+
+        <canvas class="graph" id="graph4" width="500" height="350"></canvas>
+        </p>
+
+
+        <h3> Common neighours </h3>
+        <p> Let's assume we want to list the common neighbours between two difference vertices. For that, we use
+        the command <code>gcommon</code>. For example, to know the common vertices between <b>a</b> and <b>d</b>
+        we run the command <code> gcommon graph1 a d</code> which will return a list that consists only of <b>e</b>, as
+        it's clear from the graph that it's the only common neighbour of <b>a</b> and <b>d</b>.
+        </p>
+
+        <canvas class="graph" id="graph5" width="500" height="350"></canvas>
+
+        <h3> More will come soon </h3>
+
 
       </div> <!-- End of row -->
 

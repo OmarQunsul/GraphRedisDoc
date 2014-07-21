@@ -1,0 +1,51 @@
+<html>
+
+  <head>
+
+    <style>
+     canvas {
+       border: 1px solid black;
+     }
+
+    </style>
+
+  </head>
+
+  <body>
+    <canvas id="myCanvas" width="500" height="400"></canvas>
+  </body>
+
+  <script>
+    var canvas = document.getElementById('myCanvas');
+    var context = canvas.getContext('2d');
+    var width = canvas.width;
+    var height = canvas.height;
+
+    var centerX = width / 2;
+    var centerY = height / 2;
+    radius = 20;
+
+    var pointsNo = 7;
+    var points = [];
+    var rotateAngle = Math.PI * 2 / pointsNo;
+    var rotateRadius = 0.85 * Math.min(width, height) / 2;
+
+    var currentAngle = Math.PI / 2;
+
+    for(i = 0; i < pointsNo; i++) {
+      var x = centerX - rotateRadius * Math.sin(currentAngle);
+      var y = centerY - rotateRadius * Math.cos(currentAngle);
+      context.beginPath();
+      context.arc(x, y, radius, 0, 2 * Math.PI, false);
+      context.fillStyle = 'yellow';
+      context.fill();
+      context.lineWidth = 2;
+      context.strokeStyle = '#003300';
+      context.stroke();
+      points.push([x, y]);
+      currentAngle += rotateAngle;
+      console.log(currentAngle);
+    }
+
+  </script>
+</html>
