@@ -89,6 +89,7 @@
             <li><h4>Basic commands</h4></li>
             <li><a href="#gvertex">gvertex</a></li>
             <li><a href="#gedge">gedge</a></li>
+            <li><a href="#gvertexexists">gvertexexists</a></li>
             <li><a href="#gedgeexists">gedgeexists</a></li>
             <li><a href="#gedgevalue">gedgevalue</a></li>
             <li><a href="#gedgeincrby">gedgeincrby</a></li>
@@ -120,7 +121,18 @@
           <h2 id="gedge">gedge</h2>
           <div class="sep"></div>
 
+          <h2 id="gvertexexists">gvertexexists</h2>
+          <div class="syntax"> <b>gvertexexists</b> graph_name vertex</div>
+          <h3 class="doc"> Return value </h3>
+          <p> Returns 1 if the vertex exists in the graph (graph_name), otherwise it returns 0 </p>
+
+          <div class="sep"></div>
+
           <h2 id="gedgeexists">gedgeexists</h2>
+          <div class="syntax"> <b>gedgeexists</b> graph_name vertex1 vertex2</div>
+          <h3 class="doc"> Return value </h3>
+          <p> Returns 1 if there is an edge that exists between vertex1 and vertex2 in the graph graph_name </p>
+
           <div class="sep"></div>
 
           <h2 id="gedgevalue">gedgevalue</h2>
@@ -174,7 +186,7 @@
       <div style="clear: both;"></div>
       <div class="footer">
         <p>
-        Omar Qunsul 2014 -
+        Omar Qunsul 2016 -
         <a target="_blank" href="http://twitter.com/OmarQunsul">@OmarQunsul</a>
         </p>
       </div>
