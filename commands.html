@@ -94,6 +94,7 @@
             <li><a href="#gedgevalue">gedgevalue</a></li>
             <li><a href="#gedgeincrby">gedgeincrby</a></li>
             <li><a href="#gneighbours">gneighbours</a></li>
+            <li><a href="#gmaxneighbour">gmaxneighbour</a></li>
             <li><a href="#gcommon">gcommon</a></li>
 
             <li class="menu_sep"></li>
@@ -155,6 +156,13 @@
           <h2 id="gneighbours">gneighbours</h2>
           <p> Returns a list of a vertex neighbours </p>
           <div class="syntax"> <b>gneighbours</b> graph_name vertex </div>
+          <div class="sep"></div>
+
+          <h2 id="gmaxneighbour">gmaxneighbour</h2>
+          <p> Returns the neighbour of a vertex with the highest value of the edge </p>
+          <p> The return value is an array of 2 elements, the neighbour name and the value of the edge </p>
+          <p> If the vertex has no neighbours, the return value will be a <b>zero</b> </p>
+          <div class="syntax"> <b>gmaxneighbour</b> graph_name vertex </div>
           <div class="sep"></div>
 
           <h2 id="gcommon">gcommon</h2>
