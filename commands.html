@@ -90,6 +90,7 @@
             <li><a href="#gvertex">gvertex</a></li>
             <li><a href="#gedge">gedge</a></li>
             <li><a href="#gvertexexists">gvertexexists</a></li>
+            <li><a href="#gvertices">gvertices</a></li>
             <li><a href="#gedgeexists">gedgeexists</a></li>
             <li><a href="#gedgevalue">gedgevalue</a></li>
             <li><a href="#gedgeincrby">gedgeincrby</a></li>
@@ -120,12 +121,23 @@
           <div class="sep"></div>
 
           <h2 id="gedge">gedge</h2>
+          <div class="syntax"> <b>gvertices</b> graph_name vertex1 vertex2</div>
+          <p> This commands adds a new edge between <b>vertex1</b> and </b>vertex2</b>. If the edge already exists, the edge value will be updated. </p>
+          <h3 class="doc"> Return value </h3>
+          <p> Returns the edge value </p>
           <div class="sep"></div>
 
           <h2 id="gvertexexists">gvertexexists</h2>
           <div class="syntax"> <b>gvertexexists</b> graph_name vertex</div>
           <h3 class="doc"> Return value </h3>
           <p> Returns 1 if the vertex exists in the graph (graph_name), otherwise it returns 0 </p>
+
+          <div class="sep"></div>
+
+          <h2 id="gvertices">gvertices</h2>
+          <div class="syntax"> <b>gvertices</b> graph_name pattern</div>
+          <h3 class="doc"> Return value </h3>
+          <p> Returns list of graph vertices that match the pattern string </p>
 
           <div class="sep"></div>
 
