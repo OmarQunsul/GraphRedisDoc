@@ -61,7 +61,7 @@
             context.fillText(edge[2].toString(), x3 - 4, y3 + 6);
           }
 
-          // Drawing Vertices
+          // Drawing Nodes
           for (i = 0; i < graph.nodes.length; i++) {
             // Node circle
             node = graph.nodes[i];

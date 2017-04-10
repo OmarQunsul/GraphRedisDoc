@@ -87,10 +87,10 @@
         <div class="col-md-4">
           <ul class="nav nav-pills nav-stacked">
             <li><h4>Basic commands</h4></li>
-            <li><a href="#gvertex">gvertex</a></li>
+            <li><a href="#gnode">gnode</a></li>
             <li><a href="#gedge">gedge</a></li>
-            <li><a href="#gvertexexists">gvertexexists</a></li>
-            <li><a href="#gvertices">gvertices</a></li>
+            <li><a href="#gnodeexists">gnodeexists</a></li>
+            <li><a href="#gnodes">gnodes</a></li>
             <li><a href="#gedgeexists">gedgeexists</a></li>
             <li><a href="#gedgevalue">gedgevalue</a></li>
             <li><a href="#gedgeincrby">gedgeincrby</a></li>
@@ -113,46 +113,46 @@
 
           Here is a list of all the graph related commands supported by <b>graph-redis</b>
 
-          <h2 id="gvertex">gvertex</h2>
-          <p> This command is used to add one, or more, vertices to a graph. graph will be created if it doesn't already exist.</p>
-          <div class="syntax"> <b>gvertex</b> graph_name vertex [vertex ...] </div>
+          <h2 id="gnode">gnode</h2>
+          <p> This command is used to add one, or more, nodes to a graph. graph will be created if it doesn't already exist.</p>
+          <div class="syntax"> <b>gnode</b> graph_name node [node ...] </div>
           <h3 class="doc"> Return value </h3>
-          <p> Number of elements added not including the vertices that already existed </p>
+          <p> Number of elements added not including the nodes that already existed </p>
           <div class="sep"></div>
 
           <h2 id="gedge">gedge</h2>
-          <div class="syntax"> <b>gvertices</b> graph_name vertex1 vertex2</div>
-          <p> This commands adds a new edge between <b>vertex1</b> and </b>vertex2</b>. If the edge already exists, the edge value will be updated. </p>
+          <div class="syntax"> <b>gnodes</b> graph_name node1 node2</div>
+          <p> This commands adds a new edge between <b>node1</b> and </b>node2</b>. If the edge already exists, the edge value will be updated. </p>
           <h3 class="doc"> Return value </h3>
           <p> Returns the edge value </p>
           <div class="sep"></div>
 
-          <h2 id="gvertexexists">gvertexexists</h2>
-          <div class="syntax"> <b>gvertexexists</b> graph_name vertex</div>
+          <h2 id="gnodeexists">gnodeexists</h2>
+          <div class="syntax"> <b>gnodeexists</b> graph_name node</div>
           <h3 class="doc"> Return value </h3>
-          <p> Returns 1 if the vertex exists in the graph (graph_name), otherwise it returns 0 </p>
+          <p> Returns 1 if the node exists in the graph (graph_name), otherwise it returns 0 </p>
 
           <div class="sep"></div>
 
-          <h2 id="gvertices">gvertices</h2>
-          <div class="syntax"> <b>gvertices</b> graph_name pattern</div>
+          <h2 id="gnodes">gnodes</h2>
+          <div class="syntax"> <b>gnodes</b> graph_name pattern</div>
           <h3 class="doc"> Return value </h3>
-          <p> Returns list of graph vertices that match the pattern string </p>
+          <p> Returns list of graph nodes that match the pattern string </p>
 
           <div class="sep"></div>
 
           <h2 id="gedgeexists">gedgeexists</h2>
-          <div class="syntax"> <b>gedgeexists</b> graph_name vertex1 vertex2</div>
+          <div class="syntax"> <b>gedgeexists</b> graph_name node1 node2</div>
           <h3 class="doc"> Return value </h3>
-          <p> Returns 1 if there is an edge that exists between vertex1 and vertex2 in the graph graph_name </p>
+          <p> Returns 1 if there is an edge that exists between node1 and node2 in the graph graph_name </p>
 
           <div class="sep"></div>
 
           <h2 id="gedgevalue">gedgevalue</h2>
-          <p> Returns the value of the edge between two vertices </p>
-          <div class="syntax"> <b>gedgevalue</b> graph_name vertex1 vertex2</div>
+          <p> Returns the value of the edge between two nodes </p>
+          <div class="syntax"> <b>gedgevalue</b> graph_name node1 node2</div>
           <h3 class="doc"> Return value </h3>
-          <p> The value of the edge between vertex1 and vertex2 </p>
+          <p> The value of the edge between node1 and node2 </p>
           <div class="sep"></div>
 
           <h2 id="gedgeincrby">gedgeincrby</h2>
@@ -162,34 +162,34 @@
           <p> Returns a list of all the edges and their values in the graph, ordered by the time of insertion </p>
           <div class="syntax"> <b>gedges</b> graph_name</div>
           <h3 class="doc"> Return value </h3>
-          <p> A list of length (3 * edges_Count). Each 3 elements represent vertex 1, vertex 2, and the edge value </p>
+          <p> A list of length (3 * edges_Count). Each 3 elements represent node 1, node 2, and the edge value </p>
           <div class="sep"></div>
 
           <h2 id="gneighbours">gneighbours</h2>
-          <p> Returns a list of a vertex neighbours </p>
-          <div class="syntax"> <b>gneighbours</b> graph_name vertex </div>
+          <p> Returns a list of a node neighbours </p>
+          <div class="syntax"> <b>gneighbours</b> graph_name node </div>
           <div class="sep"></div>
 
           <h2 id="gmaxneighbour">gmaxneighbour</h2>
-          <p> Returns the neighbour of a vertex with the highest value of the edge </p>
+          <p> Returns the neighbour of a node with the highest value of the edge </p>
           <p> The return value is an array of 2 elements, the neighbour name and the value of the edge </p>
-          <p> If the vertex has no neighbours, the return value will be a <b>zero</b> </p>
-          <div class="syntax"> <b>gmaxneighbour</b> graph_name vertex </div>
+          <p> If the node has no neighbours, the return value will be a <b>zero</b> </p>
+          <div class="syntax"> <b>gmaxneighbour</b> graph_name node </div>
           <div class="sep"></div>
 
           <h2 id="gcommon">gcommon</h2>
-          <p> This command is used to retrieve a list of all the common neighbours between two vertices in one graph </p>
-          <div class="syntax"> <b>gcommon</b> graph_name vertex1 vertex2 </div>
+          <p> This command is used to retrieve a list of all the common neighbours between two nodes in one graph </p>
+          <div class="syntax"> <b>gcommon</b> graph_name node1 node2 </div>
           <h3 class="doc"> Return value </h3>
           <p> A list of the common neighbours </p>
 
           <div class="sep"></div>
 
           <h2 id="gshortestpath">gshortestpath</h2>
-          <p> This command runs Dijkstra algorithm to find the shortest path from vertex 1 to vertex 2 in a graph </p>
-          <div class="syntax"> <b>gshortestpath</b> graph_name vertex1 vertex2 </div>
+          <p> This command runs Dijkstra algorithm to find the shortest path from node 1 to node 2 in a graph </p>
+          <div class="syntax"> <b>gshortestpath</b> graph_name node1 node2 </div>
           <h3 class="doc"> Return value </h3>
-          <p> A list that contains the vertices that build the path from vertex 1 to vertex 2, and the cost of that path.</p>
+          <p> A list that contains the nodes that build the path from node 1 to node 2, and the cost of that path.</p>
 
           <div class="sep"></div>
 

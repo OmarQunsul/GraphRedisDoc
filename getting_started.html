@@ -134,30 +134,30 @@
 
         <canvas class="graph" id="graph1" width="500" height="350"></canvas>
 
-        <p> First we need to add the vertices a, b, c, d and e </p>
-        <p> To do so, we use the command <code>gvertex</code> as in the following example: </p>
+        <p> First we need to add the nodes a, b, c, d and e </p>
+        <p> To do so, we use the command <code>gnode</code> as in the following example: </p>
 
         <code>
-          gvertex graph1 a <br>
-          gvertex graph1 b <br>
-          gvertex graph1 c <br>
-          gvertex graph1 d <br>
-          gvertex graph1 e <br>
+          gnode graph1 a <br>
+          gnode graph1 b <br>
+          gnode graph1 c <br>
+          gnode graph1 d <br>
+          gnode graph1 e <br>
         </code>
 
-        <p> or we can use <code>gvertex</code> to add multiple vertices at once, like in this example: </p>
+        <p> or we can use <code>gnode</code> to add multiple nodes at once, like in this example: </p>
 
         <code>
-          gvertex graph1 a b c d e
+          gnode graph1 a b c d e
         </code>
 
-        <p> graph1 didn't exist before, but it has been created once we added the first vertex to it. </p>
-        <p> By the end of running add the vertices, our graph looks like this </p>
+        <p> graph1 didn't exist before, but it has been created once we added the first node to it. </p>
+        <p> By the end of running add the nodes, our graph looks like this </p>
 
         <canvas class="graph" id="graph2" width="500" height="350"></canvas>
 
         <p> To add weighted edges to the graph, we use the command <code> gedge </code> which takes 4 paramters:
-        <b> graph_name </b> <b> vertex1 </b> <b> vertex2 </b> <b> edge_value </b> </p>
+        <b> graph_name </b> <b> node1 </b> <b> node2 </b> <b> edge_value </b> </p>
 
         <h3> Example: </h3>
         <code>
@@ -176,8 +176,8 @@
 
 
         <h3> Listing the neighbours </h3>
-        <p> Let's assume we want to list the neighbour vertices of some node, let's say <b>a</b> in our example.
-        neighbour vertices of <b>a</b> are the vertices which have direct edge with the node <b>a</b>. To list
+        <p> Let's assume we want to list the neighbour nodes of some node, let's say <b>a</b> in our example.
+        neighbour nodes of <b>a</b> are the nodes which have direct edge with the node <b>a</b>. To list
         the neighbours, we use the command <code>gneighbours</code> like this.
 
         <code>gneighbours graph1 a</code> which will return a list of the following values: <br>
@@ -192,8 +192,8 @@
 
 
         <h3> Common neighbours </h3>
-        <p> Let's assume we want to list the common neighbours between two difference vertices. For that, we use
-        the command <code>gcommon</code>. For example, to know the common vertices between <b>a</b> and <b>d</b>
+        <p> Let's assume we want to list the common neighbours between two difference nodes. For that, we use
+        the command <code>gcommon</code>. For example, to know the common nodes between <b>a</b> and <b>d</b>
         we run the command <code> gcommon graph1 a d</code> which will return a list that consists only of <b>e</b>, as
         it's clear from the graph that it's the only common neighbour of <b>a</b> and <b>d</b>.
         </p>
