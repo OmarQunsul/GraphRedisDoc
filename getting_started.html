@@ -18,56 +18,7 @@
     <link href="jumbotron-narrow.css" rel="stylesheet">
     <script src="http://code.jquery.com/jquery-2.1.1.js"></script>
     <script src="graph.js"></script>
-
-    <style>
-      .version {
-        font-size: 14px !important;
-        font-family: Courier;
-      }
-
-      .nav a {
-        border: 1px solid #999;
-        margin-left: 4px;
-      }
-
-      a .glyphicon, a .fa {
-        margin-right: 12px;
-      }
-
-      p {
-        margin: 5px;
-      }
-
-      .sep {
-        margin-bottom: 20px;
-        margin-top: 20px;
-        border-bottom: 1px dotted #888;
-      }
-
-      h3.doc {
-        font-size: 18px;
-        font-weight: bold;
-      }
-
-      .footer {
-        margin-top: 20px;
-      }
-
-      div.syntax {
-        background-color: #DDD;
-        border-radius: 6px;
-        padding: 8px;
-        text-align: center;
-        font-family: Courier;
-      }
-
-      canvas {
-        border: 1px solid #444;
-        margin: auto;
-      }
-
-    </style>
-
+    <link rel="stylesheet" type="text/css" href="style.css">
 
     <script>
 
@@ -132,7 +83,9 @@
         <p> In this part we will show you how to build this graph using Graph/Redis, and we will see how to apply some of the
         base commands and the algorithms on this sample </p>
 
-        <canvas class="graph" id="graph1" width="500" height="350"></canvas>
+        <div class="center">
+          <canvas class="graph" id="graph1" width="500" height="350"></canvas>
+        </div>
 
         <p> First we need to add the nodes a, b, c, d and e </p>
         <p> To do so, we use the command <code>gnode</code> as in the following example: </p>
@@ -154,7 +107,9 @@
         <p> graph1 didn't exist before, but it has been created once we added the first node to it. </p>
         <p> By the end of running add the nodes, our graph looks like this </p>
 
-        <canvas class="graph" id="graph2" width="500" height="350"></canvas>
+        <div class="center">
+          <canvas class="graph" id="graph2" width="500" height="350"></canvas>
+        </div>
 
         <p> To add weighted edges to the graph, we use the command <code> gedge </code> which takes 4 paramters:
         <b> graph_name </b> <b> node1 </b> <b> node2 </b> <b> edge_value </b> </p>
@@ -170,7 +125,9 @@
         </code>
 
         <p> And the result will be exactly as in the graph depicted at the top of the page </p>
-        <canvas class="graph" id="graph3" width="500" height="350"></canvas>
+        <div class="center">
+          <canvas class="graph" id="graph3" width="500" height="350"></canvas>
+        </div>
 
         <p> So let's now play with some commands, and see what Graph/Redis can do </p>
 
@@ -187,7 +144,9 @@
           3) e <br>
         </code>
 
-        <canvas class="graph" id="graph4" width="500" height="350"></canvas>
+        <div class="center">
+          <canvas class="graph" id="graph4" width="500" height="350"></canvas>
+        </div>
         </p>
 
 
@@ -198,7 +157,9 @@
         it's clear from the graph that it's the only common neighbour of <b>a</b> and <b>d</b>.
         </p>
 
-        <canvas class="graph" id="graph5" width="500" height="350"></canvas>
+        <div class="center">
+          <canvas class="graph" id="graph5" width="500" height="350"></canvas>
+        </div>
 
         <h2> Algorithms </h2>
 
@@ -211,7 +172,9 @@
         <p> for example, running <code>gmintree graph1 graph2</code> on the previous <b>graph1</b> will result in the following graph(tree)
         being saved in <b>graph2</b>:</p>
 
-        <canvas class="graph" id="graph6" width="500" height="350"></canvas>
+        <div class="center">
+          <canvas class="graph" id="graph6" width="500" height="350"></canvas>
+        </div>
 
         <p>It's worth mentioning that Graph/Redis minimum spanning tree command uses Prim's algorithm.</p>
 
@@ -223,7 +186,7 @@
       <div style="clear: both;"></div>
       <div class="footer">
         <p>
-        Omar Qunsul 2016 -
+        Omar Qunsul 2017 -
         <a target="_blank" href="http://twitter.com/OmarQunsul">@OmarQunsul</a>
         </p>
       </div>
