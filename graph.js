@@ -9,7 +9,7 @@
 
           var centerX = width / 2;
           var centerY = height / 2;
-          radius = 20;
+          var radius = 20;
 
           var pointsNo = graph.nodes.length;
           var points = [];
@@ -34,17 +34,31 @@
             var y1 = points[edge[0]][1];
             var x2 = points[edge[1]][0];
             var y2 = points[edge[1]][1];
-            context.strokeStyle = edge[3] ? 'red' : '#777';
-            context.lineWidth = edge[3] ? 4 : 1;
+            context.strokeStyle = edge[3] ? 'red' : '#555';
+            context.lineWidth = edge[3] ? 7 : 3;
             context.beginPath();
             context.moveTo(x1, y1);
             context.lineTo(x2, y2);
             context.stroke();
 
+            if (graph.directed) {
+              var arrow_length = 20;
+              var angle = Math.atan2(y2 - y1, x2 - x1);
+              var x4 = x2 - Math.cos(angle) * radius;
+              var y4 = y2 - Math.sin(angle) * radius;
+              context.beginPath();
+              context.moveTo(x4, y4);
+              console.log(angle);
+              context.lineTo(x4 - arrow_length * Math.cos(angle - Math.PI/6), y4 - arrow_length * Math.sin(angle - Math.PI/6));
+              context.moveTo(x4, y4);
+              context.lineTo(x4 - arrow_length * Math.cos(angle + Math.PI/6), y4 - arrow_length * Math.sin(angle + Math.PI/6));
+              context.stroke();
+            }
+
+
+            // Edge middle space
             var x3 = (x1 + x2) / 2;
             var y3 = (y1 + y2) / 2;
-
-            // Edge circle
             context.beginPath();
             context.arc(x3, y3, 15, 0, 2 * Math.PI, false);
             context.fillStyle = 'white';

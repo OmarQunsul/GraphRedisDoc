@@ -8,7 +8,7 @@
     <meta name="author" content="Omar Qunsul">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Graph Redis - Getting started</title>
+    <title>Getting Started | Graph Redis</title>
 
     <!-- Bootstrap core CSS -->
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
@@ -50,12 +50,20 @@
           highlight: []
         }
 
+        var graph7 = { 
+          directed: true,
+          nodes: ['a', 'b', 'c'],
+          edges: [[0, 1, 10], [2, 0, 2]],
+          highlight: []
+        }
+
         drawGraph(graph1, 'graph1');
         drawGraph(graph2, 'graph2');
         drawGraph(graph1, 'graph3');
         drawGraph(graph4, 'graph4');
         drawGraph(graph5, 'graph5');
         drawGraph(graph6, 'graph6');
+        drawGraph(graph7, 'graph7');
 
       });
 
@@ -157,8 +165,28 @@
         it's clear from the graph that it's the only common neighbour of <b>a</b> and <b>d</b>.
         </p>
 
+
         <div class="center">
           <canvas class="graph" id="graph5" width="500" height="350"></canvas>
+        </div>
+
+        <h3> Directed Graphs </h3>
+        <p> With <b>graph-redis</b>, you can also construct directed graphs, that affect the return values of some commands </p>
+        <p> To set the graph as directed, call <code>gsetdirected</code> command before you add any edges </p>
+        <b> Example </b> <br />
+        <code> gnode graph1 a b c </code> <br />
+        <code> gsetdirected graph1 </code> <br />
+        <code> gedge graph1 a b 10 </code> <br />
+        <code> gedge graph1 c a 2 </code> <br />
+        <code> gneighbours graph1 a # Returns['b'] </code> <br />
+        <code> gneighbours graph1 c # Returns['a'] </code> <br />
+        <code> gneighbours graph1 b # Returns[] </code> <br />
+        <code> gincoming graph1 b # Returns['a'] </code> <br />
+
+        <br>
+
+        <div class="center">
+          <canvas class="graph" id="graph7" width="500" height="350"></canvas>
         </div>
 
         <h2> Algorithms </h2>
